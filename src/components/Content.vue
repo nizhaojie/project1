@@ -400,6 +400,7 @@ export default {
   mounted() {
     //每次进入该页面自动执行该方法，即自动读取数据库数据导入到页面当中
     this.all()
+    document.title = '智能制造云平台'
   },
   methods: {
     all() {

@@ -41,6 +41,9 @@
 <script>
 export default {
   name: 'Login',
+  mounted() {
+    document.title = '智能制造云平台'
+  },
   data() {
     return {
       sign_in_user: '',
