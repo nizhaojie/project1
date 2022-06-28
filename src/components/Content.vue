@@ -65,6 +65,7 @@
           </el-table-column>
         </el-table>
       </div>
+
     </div>
 
     <div class="content_device">
@@ -590,34 +591,53 @@ export default {
       var product_name = prompt('请输入产品名')
       var amount = prompt('请输入产品数量')
       var price = prompt('请输入产品单价')
-      axios.get('http://localhost/productsAdd', {
-        params: {
-          product_name: product_name,
-          amount: amount,
-          price: price
-        }
-      })
+      if (product_name == '' || amount == '' || price == '') {
+        return alert('请填写完整的信息')
+      }
+      axios
+        .get('http://localhost/productsAdd', {
+          params: {
+            product_name: product_name,
+            amount: amount,
+            price: price
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     changeProduct(id) {
       var product_name = prompt('请输入产品名')
       var amount = prompt('请输入产品数量')
       var price = prompt('请输入产品单价')
-      axios.get('http://localhost/productsChange', {
-        params: {
-          product_name: product_name,
-          amount: amount,
-          price: price,
-          id: id
-        }
-      })
+      if (product_name == '' || amount == '' || price == '') {
+        return alert('请填写完整的信息')
+      }
+      axios
+        .get('http://localhost/productsChange', {
+          params: {
+            product_name: product_name,
+            amount: amount,
+            price: price,
+            id: id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     delProduct(id) {
-      axios.get('http://localhost/productsDel', {
-        params: {
-          id: id
-        }
-      })
+      axios
+        .get('http://localhost/productsDel', {
+          params: {
+            id: id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
+
     list_factories() {
       axios
         .get('http://localhost/factories')
@@ -751,37 +771,56 @@ export default {
       var owner = prompt('请输入工厂所有者')
       var profit = prompt('请输入工厂年盈利')
       var scale = prompt('请输入工厂规模')
-      axios.get('http://localhost/factoriesAdd', {
-        params: {
-          factory_name: factory_name,
-          owner: owner,
-          profit: profit,
-          scale: scale
-        }
-      })
+      if (factory_name == '' || owner == '' || profit == '' || scale == '') {
+        return alert('请填写完整的信息')
+      }
+      axios
+        .get('http://localhost/factoriesAdd', {
+          params: {
+            factory_name: factory_name,
+            owner: owner,
+            profit: profit,
+            scale: scale
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     changeFactory(id) {
       var factory_name = prompt('请输入工厂名')
       var owner = prompt('请输入工厂所有者')
       var profit = prompt('请输入工厂年盈利')
       var scale = prompt('请输入工厂规模')
-      axios.get('http://localhost/factoriesChange', {
-        params: {
-          factory_name: factory_name,
-          owner: owner,
-          profit: profit,
-          scale: scale,
-          id: id
-        }
-      })
+      if (factory_name == '' || owner == '' || profit == '' || scale == '') {
+        return alert('请填写完整的信息')
+      }
+      axios
+        .get('http://localhost/factoriesChange', {
+          params: {
+            factory_name: factory_name,
+            owner: owner,
+            profit: profit,
+            scale: scale,
+            id: id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     delFactory(id) {
-      axios.get('http://localhost/factoriesDel', {
-        params: {
-          id: id
-        }
-      })
+      axios
+        .get('http://localhost/factoriesDel', {
+          params: {
+            id: id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
+
     list_devices() {
       axios
         .get('http://localhost/devices')
@@ -825,34 +864,53 @@ export default {
       var device_name = prompt('请输入设备名')
       var product_id = prompt('请输入管理产品的编号')
       var status = prompt('请输入设备状态')
-      axios.get('http://localhost/devicesAdd', {
-        params: {
-          device_name: device_name,
-          product_id: product_id,
-          status: status
-        }
-      })
+      if (device_name == '' || product_id == '' || status == '') {
+        return alert('请填写完整的信息')
+      }
+      axios
+        .get('http://localhost/devicesAdd', {
+          params: {
+            device_name: device_name,
+            product_id: product_id,
+            status: status
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     changeDevice(id) {
       var device_name = prompt('请输入设备名')
       var product_id = prompt('请输入管理产品的编号')
       var status = prompt('请输入设备状态')
-      axios.get('http://localhost/devicesChange', {
-        params: {
-          device_name: device_name,
-          product_id: product_id,
-          status: status,
-          id: id
-        }
-      })
+      if (device_name == '' || product_id == '' || status == '') {
+        return alert('请填写完整的信息')
+      }
+      axios
+        .get('http://localhost/devicesChange', {
+          params: {
+            device_name: device_name,
+            product_id: product_id,
+            status: status,
+            id: id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     delDevice(id) {
-      axios.get('http://localhost/devicesDel', {
-        params: {
-          id: id
-        }
-      })
+      axios
+        .get('http://localhost/devicesDel', {
+          params: {
+            id: id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
+
     list_orders() {
       this.checkOrder()
       this.$refs.orders_table1.style.display = 'none'
@@ -883,21 +941,31 @@ export default {
         .catch(err => {
           console.log('订单数据获取失败' + err)
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     addOrder() {
       var buyer = prompt('请输入买家')
       var product_id = prompt('请输入所需产品编号')
       var target_amount = prompt('请输入所需数量')
       var value = prompt('请输入订单额度')
-      axios.get('http://localhost/ordersAdd', {
-        params: {
-          buyer: buyer,
-          product_id: product_id,
-          target_amount: target_amount,
-          status: 0,
-          value: value
-        }
-      })
+      if (buyer == '' || product_id == '' || target_amount == '' || value == '') {
+        return alert('请填写完整的信息')
+      }
+      axios
+        .get('http://localhost/ordersAdd', {
+          params: {
+            buyer: buyer,
+            product_id: product_id,
+            target_amount: target_amount,
+            status: 0,
+            value: value
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     changeOrder(id) {
       var buyer = prompt('请输入买家')
@@ -905,32 +973,53 @@ export default {
       var target_amount = prompt('请输入所需数量')
       var status = prompt('请输入订单状态')
       var value = prompt('请输入订单额度')
-      axios.get('http://localhost/ordersChange', {
-        params: {
-          buyer: buyer,
-          product_id: product_id,
-          target_amount: target_amount,
-          status: status,
-          value: value,
-          id: id
-        }
-      })
+      if (buyer == '' || product_id == '' || target_amount == '' || value == '') {
+        return alert('请填写完整的信息')
+      }
+      axios
+        .get('http://localhost/ordersChange', {
+          params: {
+            buyer: buyer,
+            product_id: product_id,
+            target_amount: target_amount,
+            status: status,
+            value: value,
+            id: id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     delOrder(id) {
-      axios.get('http://localhost/ordersDel', {
-        params: {
-          id: id
-        }
-      })
+      axios
+        .get('http://localhost/ordersDel', {
+          params: {
+            id: id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     checkOrder() {
-      axios.get('http://localhost/orders').then(res => {
-        this.tableData_orders = res.data
-      })
+      axios
+        .get('http://localhost/orders')
+        .then(res => {
+          this.tableData_orders = res.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
 
-      axios.get('http://localhost/products').then(res => {
-        this.tableData_products = res.data
-      })
+      axios
+        .get('http://localhost/products')
+        .then(res => {
+          this.tableData_products = res.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
 
       let str = ''
 
@@ -940,16 +1029,20 @@ export default {
           if (target.amount >= this.tableData_orders[i].target_amount) {
             str += this.tableData_orders[i].id + '/'
             this.tableData_orders[i].status = 1
-            axios.get('http://localhost/ordersChange', {
-              params: {
-                buyer: this.tableData_orders[i].buyer,
-                product_id: this.tableData_orders[i].product_id,
-                target_amount: this.tableData_orders[i].target_amount,
-                status: 1,
-                value: this.tableData_orders[i].value,
-                id: this.tableData_orders[i].id
-              }
-            })
+            axios
+              .get('http://localhost/ordersChange', {
+                params: {
+                  buyer: this.tableData_orders[i].buyer,
+                  product_id: this.tableData_orders[i].product_id,
+                  target_amount: this.tableData_orders[i].target_amount,
+                  status: 1,
+                  value: this.tableData_orders[i].value,
+                  id: this.tableData_orders[i].id
+                }
+              })
+              .catch(err => {
+                console.log(err)
+              })
           }
         }
       }
@@ -957,6 +1050,7 @@ export default {
         alert('订单' + str + '已完成,在订单管理栏查看并操作')
       }
     },
+
     list_generateplan() {
       axios
         .get('http://localhost/generateplan')
@@ -1003,17 +1097,24 @@ export default {
       var deadline = prompt('请输入截止时间')
       var start_time = prompt('请输入开始时间')
       var factory_id = prompt('请输入执行生产计划的工厂编号')
-      axios.get('http://localhost/generateplanAdd', {
-        params: {
-          product_id: product_id,
-          target_amount: target_amount,
-          existing_amount: existing_amount,
-          deadline: deadline,
-          start_time: start_time,
-          status: 0,
-          factory_id: factory_id
-        }
-      })
+      if (product_id == '' || target_amount == '' || existing_amount == '' || deadline == '' || start_time == '' || factory_id == '') {
+        return alert('请填写完整的信息')
+      }
+      axios
+        .get('http://localhost/generateplanAdd', {
+          params: {
+            product_id: product_id,
+            target_amount: target_amount,
+            existing_amount: existing_amount,
+            deadline: deadline,
+            start_time: start_time,
+            status: 0,
+            factory_id: factory_id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     changeGenerateplan(id) {
       var product_id = prompt('请输入所需产品编号')
@@ -1023,26 +1124,38 @@ export default {
       var start_time = prompt('请输入开始时间')
       var status = prompt('请输入生产计划状态')
       var factory_id = prompt('请输入执行生产计划的工厂编号')
-      axios.get('http://localhost/generateplanChange', {
-        params: {
-          product_id: product_id,
-          target_amount: target_amount,
-          existing_amount: existing_amount,
-          deadline: deadline,
-          start_time: start_time,
-          status: status,
-          factory_id: factory_id,
-          id: id
-        }
-      })
+      if (product_id == '' || target_amount == '' || existing_amount == '' || deadline == '' || start_time == '' || factory_id == '') {
+        return alert('请填写完整的信息')
+      }
+      axios
+        .get('http://localhost/generateplanChange', {
+          params: {
+            product_id: product_id,
+            target_amount: target_amount,
+            existing_amount: existing_amount,
+            deadline: deadline,
+            start_time: start_time,
+            status: status,
+            factory_id: factory_id,
+            id: id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
     delGenerateplan(id) {
-      axios.get('http://localhost/generateplanDel', {
-        params: {
-          id: id
-        }
-      })
+      axios
+        .get('http://localhost/generateplanDel', {
+          params: {
+            id: id
+          }
+        })
+        .catch(err => {
+          console.log(err)
+        })
     },
+
     submit() {
       let submit_productid = this.$refs.submit_productid.value
       let submit_amountall = this.$refs.submit_amountall.value
@@ -1070,6 +1183,9 @@ export default {
               }
             })
             .then(alert('记录成功'))
+            .catch(err => {
+              console.log(err)
+            })
         })
         .catch(err => {
           console.log(err)
@@ -1088,18 +1204,22 @@ export default {
               target.status = 1
             }
 
-            axios.get('http://localhost/generateplanChange', {
-              params: {
-                product_id: target.product_id,
-                target_amount: target.target_amount,
-                existing_amount: target.existing_amount + parseInt(submit_amountgood),
-                deadline: target.deadline,
-                start_time: target.start_time,
-                status: target.status,
-                factory_id: target.factory_id,
-                id: target.id
-              }
-            })
+            axios
+              .get('http://localhost/generateplanChange', {
+                params: {
+                  product_id: target.product_id,
+                  target_amount: target.target_amount,
+                  existing_amount: target.existing_amount + parseInt(submit_amountgood),
+                  deadline: target.deadline,
+                  start_time: target.start_time,
+                  status: target.status,
+                  factory_id: target.factory_id,
+                  id: target.id
+                }
+              })
+              .catch(err => {
+                console.log(err)
+              })
           }
         })
         .catch(err => {
