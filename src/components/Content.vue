@@ -604,7 +604,7 @@ export default {
           amount: amount,
           price: price
         }
-      })
+      }).then(setTimeout(this.list_products, 1000))
     },
     changeProduct(id) {
       var productName = prompt('请输入产品名')
@@ -622,7 +622,7 @@ export default {
           price: price,
           id: id
         }
-      })
+      }).then(setTimeout(this.list_products, 1000))
     },
     delProduct(id) {
       axios({
@@ -631,7 +631,7 @@ export default {
         data: {
           id: id
         }
-      })
+      }).then(setTimeout(this.list_products, 1000))
     },
 
     list_factories() {
@@ -780,7 +780,7 @@ export default {
           profit: profit,
           scale: scale
         }
-      })
+      }).then(setTimeout(this.list_factories, 1000))
     },
     changeFactory(id) {
       var factoryName = prompt('请输入工厂名')
@@ -800,7 +800,7 @@ export default {
           scale: scale,
           id: id
         }
-      })
+      }).then(setTimeout(this.list_factories, 1000))
     },
     delFactory(id) {
       axios({
@@ -809,7 +809,7 @@ export default {
         data: {
           id: id
         }
-      })
+      }).then(setTimeout(this.list_factories, 1000))
     },
 
     list_devices() {
@@ -867,7 +867,7 @@ export default {
           productId: productId,
           status: status
         }
-      })
+      }).then(setTimeout(this.list_devices, 1000))
     },
     changeDevice(id) {
       var deviceName = prompt('请输入设备名')
@@ -885,7 +885,7 @@ export default {
           status: status,
           id: id
         }
-      })
+      }).then(setTimeout(this.list_devices, 1000))
     },
     delDevice(id) {
       axios({
@@ -894,7 +894,7 @@ export default {
         data: {
           id: id
         }
-      })
+      }).then(setTimeout(this.list_devices, 1000))
     },
 
     list_orders() {
@@ -950,7 +950,7 @@ export default {
           status: 0,
           value: value
         }
-      })
+      }).then(setTimeout(this.list_orders, 1000))
     },
     changeOrder(id) {
       var buyer = prompt('请输入买家')
@@ -972,7 +972,7 @@ export default {
           value: value,
           id: id
         }
-      })
+      }).then(setTimeout(this.list_orders, 1000))
     },
     delOrder(id) {
       axios({
@@ -981,7 +981,7 @@ export default {
         data: {
           id: id
         }
-      })
+      }).then(setTimeout(this.list_orders, 1000))
     },
     checkOrder() {
       axios
@@ -1093,7 +1093,7 @@ export default {
           status: 0,
           factoryId: factoryId
         }
-      })
+      }).then(setTimeout(this.list_generateplan, 1000))
     },
     changeGenerateplan(id) {
       var productId = prompt('请输入所需产品编号')
@@ -1119,7 +1119,7 @@ export default {
           factoryId: factoryId,
           id: id
         }
-      })
+      }).then(setTimeout(this.list_generateplan, 1000))
     },
     delGenerateplan(id) {
       axios({
@@ -1128,7 +1128,7 @@ export default {
         data: {
           id: id
         }
-      })
+      }).then(setTimeout(this.list_generateplan, 1000))
     },
 
     submit() {
