@@ -1073,13 +1073,27 @@ export default {
     addGenerateplan() {
       var productId = prompt('请输入所需产品编号')
       var targetAmount = prompt('请输入所需数量')
-      var existingAmount = prompt('请输入已有产品数量')
       var deadline = prompt('请输入截止时间')
       var startTime = prompt('请输入开始时间')
       var factoryId = prompt('请输入执行生产计划的工厂编号')
-      if (productId == '' || targetAmount == '' || existingAmount == '' || deadline == '' || startTime == '' || factoryId == '') {
+      if (productId == '' || targetAmount == '' || deadline == '' || startTime == '' || factoryId == '') {
         return alert('请填写完整的信息')
       }
+
+      axios
+        .get('http://localhost:8181/getAllProduct')
+        .then(res => {
+          this.tableData_products = res.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
+      var target = this.tableData_products.find(item => item.id == productId)
+      if (target == undefined) {
+        return alert('没有改编号的产品')
+      }
+      var existingAmount = target.amount
 
       axios({
         method: 'post',
@@ -1098,14 +1112,28 @@ export default {
     changeGenerateplan(id) {
       var productId = prompt('请输入所需产品编号')
       var targetAmount = prompt('请输入所需数量')
-      var existingAmount = prompt('请输入已有产品数量')
       var deadline = prompt('请输入截止时间')
       var startTime = prompt('请输入开始时间')
-      var status = prompt('请输入生产计划状态')
       var factoryId = prompt('请输入执行生产计划的工厂编号')
-      if (productId == '' || targetAmount == '' || existingAmount == '' || deadline == '' || startTime == '' || factoryId == '') {
+      if (productId == '' || targetAmount == '' || deadline == '' || startTime == '' || factoryId == '') {
         return alert('请填写完整的信息')
       }
+
+      axios
+        .get('http://localhost:8181/getAllProduct')
+        .then(res => {
+          this.tableData_products = res.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
+      var target = this.tableData_products.find(item => item.id == productId)
+      if (target == undefined) {
+        return alert('没有改编号的产品')
+      }
+      var existingAmount = target.amount
+
       axios({
         method: 'post',
         url: 'http://localhost:8181/updateGeneratePlan',
