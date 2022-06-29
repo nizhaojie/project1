@@ -8,7 +8,7 @@
         <input autocomplete="off" class="input" ref="factoryid_input">
       </div>
       <!-- 按钮 -->
-      <button class="content_button search" @click="search_factory_id">搜索</button>
+      <button class="content_button search" @click="search_factoryId">搜索</button>
       <button class="content_button add" @click="addFactory">添加</button>
       <button class="content_button list" @click="list_factories">列表展示</button>
       <button class="content_button graphics" @click="graphics_factories">可视化展示</button>
@@ -21,7 +21,7 @@
         <el-table :data="tableData_factories" height="500" border style="width: 100%;text-align:center">
           <el-table-column prop="id" label="工厂编号">
           </el-table-column>
-          <el-table-column prop="factory_name" label="工厂名">
+          <el-table-column prop="factoryName" label="工厂名">
           </el-table-column>
           <el-table-column prop="owner" label="所有者">
           </el-table-column>
@@ -45,7 +45,7 @@
         <el-table :data="tableData_factories" height="500" border style="width: 100%;text-align:center">
           <el-table-column prop="id" label="工厂编号">
           </el-table-column>
-          <el-table-column prop="factory_name" label="工厂名">
+          <el-table-column prop="factoryName" label="工厂名">
           </el-table-column>
           <el-table-column prop="owner" label="所有者">
           </el-table-column>
@@ -80,9 +80,9 @@
         <el-table :data="tableData_devices" height="500" border style="width: 100%;text-align:center">
           <el-table-column prop="id" label="设备编号">
           </el-table-column>
-          <el-table-column prop="device_name" label="设备名">
+          <el-table-column prop="deviceName" label="设备名">
           </el-table-column>
-          <el-table-column prop="product_id" label="设备关联产品的编号">
+          <el-table-column prop="productId" label="设备关联产品的编号">
           </el-table-column>
           <el-table-column prop="status" label="设备状态">
           </el-table-column>
@@ -102,9 +102,9 @@
         <el-table :data="tableData_devices" height="500" border style="width: 100%;text-align:center">
           <el-table-column prop="id" label="设备编号">
           </el-table-column>
-          <el-table-column prop="device_name" label="设备名">
+          <el-table-column prop="deviceName" label="设备名">
           </el-table-column>
-          <el-table-column prop="product_id" label="设备关联产品的编号">
+          <el-table-column prop="productId" label="设备关联产品的编号">
           </el-table-column>
           <el-table-column prop="status" label="设备状态">
           </el-table-column>
@@ -128,7 +128,7 @@
         <input autocomplete="off" ref="productid_input" class="input">
       </div>
 
-      <button class="content_button search" @click="search_product_id">搜索</button>
+      <button class="content_button search" @click="search_productId">搜索</button>
       <button class="content_button add" @click="addProduct">添加</button>
       <button class="content_button list" @click="list_products">列表展示</button>
       <button class="content_button graphics" @click="graphics_products">可视化展示</button>
@@ -140,7 +140,7 @@
         <el-table :data="tableData_products" height="500" border style="width: 100%;text-align:center">
           <el-table-column prop="id" label="产品编号">
           </el-table-column>
-          <el-table-column prop="product_name" label="产品名">
+          <el-table-column prop="productName" label="产品名">
           </el-table-column>
           <el-table-column prop="amount" label="数量">
           </el-table-column>
@@ -162,7 +162,7 @@
         <el-table :data="tableData_products" height="500" border style="width: 100%;text-align:center">
           <el-table-column prop="id" label="产品编号">
           </el-table-column>
-          <el-table-column prop="product_name" label="产品名">
+          <el-table-column prop="productName" label="产品名">
           </el-table-column>
           <el-table-column prop="amount" label="数量">
           </el-table-column>
@@ -198,9 +198,9 @@
           </el-table-column>
           <el-table-column prop="buyer" label="买家">
           </el-table-column>
-          <el-table-column prop="product_id" label="产品编号">
+          <el-table-column prop="productId" label="产品编号">
           </el-table-column>
-          <el-table-column prop="target_amount" label="要求数量">
+          <el-table-column prop="targetAmount" label="要求数量">
           </el-table-column>
           <el-table-column prop="status" label="订单状态">
           </el-table-column>
@@ -224,9 +224,9 @@
           </el-table-column>
           <el-table-column prop="buyer" label="买家">
           </el-table-column>
-          <el-table-column prop="product_id" label="产品编号">
+          <el-table-column prop="productId" label="产品编号">
           </el-table-column>
-          <el-table-column prop="target_amount" label="要求数量">
+          <el-table-column prop="targetAmount" label="要求数量">
           </el-table-column>
           <el-table-column prop="status" label="订单状态">
           </el-table-column>
@@ -260,19 +260,19 @@
         <el-table :data="tableData_generateplan" height="500" border style="width: 100%;text-align:center">
           <el-table-column prop="id" label="生产计划编号">
           </el-table-column>
-          <el-table-column prop="product_id" label="产品编号">
+          <el-table-column prop="productId" label="产品编号">
           </el-table-column>
-          <el-table-column prop="target_amount" label="要求数量">
+          <el-table-column prop="targetAmount" label="要求数量">
           </el-table-column>
-          <el-table-column prop="existing_amount" label="已有数量">
+          <el-table-column prop="existingAmount" label="已有数量">
           </el-table-column>
           <el-table-column prop="deadline" label="截止日期">
           </el-table-column>
-          <el-table-column prop="start_time" label="开始日期">
+          <el-table-column prop="startTime" label="开始日期">
           </el-table-column>
           <el-table-column prop="status" label="生产计划状态">
           </el-table-column>
-          <el-table-column prop="factory_id" label="工厂编号">
+          <el-table-column prop="factoryId" label="工厂编号">
           </el-table-column>
           <el-table-column label="操作">
             <template slot-scope="scope">
@@ -290,19 +290,19 @@
         <el-table :data="tableData_generateplan" height="500" border style="width: 100%;text-align:center">
           <el-table-column prop="id" label="生产计划编号">
           </el-table-column>
-          <el-table-column prop="product_id" label="产品编号">
+          <el-table-column prop="productId" label="产品编号">
           </el-table-column>
-          <el-table-column prop="target_amount" label="要求数量">
+          <el-table-column prop="targetAmount" label="要求数量">
           </el-table-column>
-          <el-table-column prop="existing_amount" label="已有数量">
+          <el-table-column prop="existingAmount" label="已有数量">
           </el-table-column>
           <el-table-column prop="deadline" label="截止日期">
           </el-table-column>
-          <el-table-column prop="start_time" label="开始日期">
+          <el-table-column prop="startTime" label="开始日期">
           </el-table-column>
           <el-table-column prop="status" label="生产计划状态">
           </el-table-column>
-          <el-table-column prop="factory_id" label="工厂编号">
+          <el-table-column prop="factoryId" label="工厂编号">
           </el-table-column>
           <el-table-column label="操作">
             <template slot-scope="scope">
@@ -347,7 +347,7 @@ export default {
       tableData_factories: [
         {
           id: 0,
-          factory_name: '',
+          factoryName: '',
           owner: '',
           profit: 0,
           scale: 0
@@ -357,7 +357,7 @@ export default {
       tableData_products: [
         {
           id: 0,
-          product_name: '',
+          productName: '',
           amount: 0,
           price: 0
         }
@@ -366,9 +366,9 @@ export default {
       tableData_devices: [
         {
           id: 0,
-          device_name: '',
+          deviceName: '',
           status: 0,
-          product_id: ''
+          productId: ''
         }
       ],
       // 保存订单数据的数组
@@ -376,8 +376,8 @@ export default {
         {
           id: 0,
           buyer: '',
-          product_id: 0,
-          target_amount: 0,
+          productId: 0,
+          targetAmount: 0,
           status: 0,
           value: 0
         }
@@ -386,13 +386,13 @@ export default {
       tableData_generateplan: [
         {
           id: 0,
-          product_id: 0,
-          target_amount: 0,
-          existing_amount: 0,
+          productId: 0,
+          targetAmount: 0,
+          existingAmount: 0,
           deadline: '',
-          start_time: '',
+          startTime: '',
           status: 0,
-          factory_id: 0
+          factoryId: 0
         }
       ]
     }
@@ -405,7 +405,7 @@ export default {
   methods: {
     all() {
       axios
-        .get('http://localhost/products')
+        .get('http://localhost:8181/getAllProduct')
         .then(res => {
           this.tableData_products = res.data //数据传递到页面数组
           console.log('产品数据获取成功')
@@ -415,7 +415,7 @@ export default {
         })
 
       axios
-        .get('http://localhost/factories')
+        .get('http://localhost:8181/getAllFactories')
         .then(res => {
           this.tableData_factories = res.data //数据传递到页面数组
           console.log('工厂数据获取成功')
@@ -425,7 +425,7 @@ export default {
         })
 
       axios
-        .get('http://localhost/devices')
+        .get('http://localhost:8181/getAllDevice')
         .then(res => {
           this.tableData_devices = res.data //数据传递到页面数组
           console.log('设备数据获取成功')
@@ -435,7 +435,7 @@ export default {
         })
 
       axios
-        .get('http://localhost/orders')
+        .get('http://localhost:8181/getAllOrder')
         .then(res => {
           this.tableData_orders = res.data //数据传递到页面数组
           console.log('订单数据获取成功')
@@ -445,7 +445,7 @@ export default {
         })
 
       axios
-        .get('http://localhost/generateplan')
+        .get('http://localhost:8181/getAllGeneratePlan')
         .then(res => {
           this.tableData_generateplan = res.data //数据传递到页面数组
           console.log('生产计划数据获取成功')
@@ -457,7 +457,7 @@ export default {
     // 产品数据可视化展示
     graphics_products() {
       axios
-        .get('http://localhost/products')
+        .get('http://localhost:8181/getAllProduct')
         .then(res => {
           this.tableData_products = res.data //数据传递到页面数组
           console.log('产品数据获取成功')
@@ -500,7 +500,7 @@ export default {
           for (let i = 0; i < this.tableData_products.length; i++) {
             options1.series[0].data.push({ value: 0, name: '' })
             options1.series[0].data[i].value = this.tableData_products[i].price
-            options1.series[0].data[i].name = this.tableData_products[i].product_name
+            options1.series[0].data[i].name = this.tableData_products[i].productName
           }
           options1 && products_table1.setOption(options1)
 
@@ -536,7 +536,7 @@ export default {
           for (let i = 0; i < this.tableData_products.length; i++) {
             options2.series[0].data.push({ value: 0, name: '' })
             options2.series[0].data[i].value = this.tableData_products[i].amount
-            options2.series[0].data[i].name = this.tableData_products[i].product_name
+            options2.series[0].data[i].name = this.tableData_products[i].productName
           }
           options2 && products_table2.setOption(options2)
         })
@@ -547,7 +547,7 @@ export default {
     // 产品数据列表展示
     list_products() {
       axios
-        .get('http://localhost/products')
+        .get('http://localhost:8181/getAllProduct')
         .then(res => {
           this.tableData_products = res.data //数据传递到页面数组
           console.log('产品数据获取成功')
@@ -560,9 +560,9 @@ export default {
           console.log('产品数据获取失败' + err)
         })
     },
-    search_product_id() {
+    search_productId() {
       axios
-        .get('http://localhost/products')
+        .get('http://localhost:8181/getAllProduct')
         .then(res => {
           this.tableData_products = res.data //数据传递到页面数组
           console.log('产品数据获取成功')
@@ -589,59 +589,54 @@ export default {
         })
     },
     addProduct() {
-      var product_name = prompt('请输入产品名')
+      var productName = prompt('请输入产品名')
       var amount = prompt('请输入产品数量')
       var price = prompt('请输入产品单价')
-      if (product_name == '' || amount == '' || price == '') {
+      if (productName == '' || amount == '' || price == '') {
         return alert('请填写完整的信息')
       }
-      axios
-        .get('http://localhost/productsAdd', {
-          params: {
-            product_name: product_name,
-            amount: amount,
-            price: price
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/addProduct',
+        data: {
+          productName: productName,
+          amount: amount,
+          price: price
+        }
+      })
     },
     changeProduct(id) {
-      var product_name = prompt('请输入产品名')
+      var productName = prompt('请输入产品名')
       var amount = prompt('请输入产品数量')
       var price = prompt('请输入产品单价')
-      if (product_name == '' || amount == '' || price == '') {
+      if (productName == '' || amount == '' || price == '') {
         return alert('请填写完整的信息')
       }
-      axios
-        .get('http://localhost/productsChange', {
-          params: {
-            product_name: product_name,
-            amount: amount,
-            price: price,
-            id: id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/updateProduct',
+        data: {
+          productName: productName,
+          amount: amount,
+          price: price,
+          id: id
+        }
+      })
     },
     delProduct(id) {
-      axios
-        .get('http://localhost/productsDel', {
-          params: {
-            id: id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/deleteProduct',
+        data: {
+          id: id
+        }
+      })
     },
 
     list_factories() {
       axios
-        .get('http://localhost/factories')
+        .get('http://localhost:8181/getAllFactories')
         .then(res => {
           this.tableData_factories = res.data //数据传递到页面数组
           this.$refs.factories_table1.style.display = 'none'
@@ -655,7 +650,7 @@ export default {
     },
     graphics_factories() {
       axios
-        .get('http://localhost/factories')
+        .get('http://localhost:8181/getAllFactories')
         .then(res => {
           this.tableData_factories = res.data //数据传递到页面数组
           this.$refs.factories_table3.style.display = 'none'
@@ -696,7 +691,7 @@ export default {
           for (let i = 0; i < this.tableData_factories.length; i++) {
             options1.series[0].data.push({ value: 0, name: '' })
             options1.series[0].data[i].value = this.tableData_factories[i].profit
-            options1.series[0].data[i].name = this.tableData_factories[i].factory_name + '/' + this.tableData_factories[i].owner
+            options1.series[0].data[i].name = this.tableData_factories[i].factoryName + '/' + this.tableData_factories[i].owner
           }
           options1 && factories_table1.setOption(options1)
 
@@ -732,7 +727,7 @@ export default {
           for (let i = 0; i < this.tableData_factories.length; i++) {
             options2.series[0].data.push({ value: 0, name: '' })
             options2.series[0].data[i].value = this.tableData_factories[i].scale
-            options2.series[0].data[i].name = this.tableData_factories[i].factory_name + '/' + this.tableData_factories[i].owner
+            options2.series[0].data[i].name = this.tableData_factories[i].factoryName + '/' + this.tableData_factories[i].owner
           }
           options2 && factories_table2.setOption(options2)
         })
@@ -740,9 +735,9 @@ export default {
           console.log('工厂数据获取失败' + err)
         })
     },
-    search_factory_id() {
+    search_factoryId() {
       axios
-        .get('http://localhost/factories')
+        .get('http://localhost:8181/getAllFactories')
         .then(res => {
           this.tableData_factories = res.data //数据传递到页面数组
 
@@ -768,63 +763,58 @@ export default {
         })
     },
     addFactory() {
-      var factory_name = prompt('请输入工厂名')
+      var factoryName = prompt('请输入工厂名')
       var owner = prompt('请输入工厂所有者')
       var profit = prompt('请输入工厂年盈利')
       var scale = prompt('请输入工厂规模')
-      if (factory_name == '' || owner == '' || profit == '' || scale == '') {
+      if (factoryName == '' || owner == '' || profit == '' || scale == '') {
         return alert('请填写完整的信息')
       }
-      axios
-        .get('http://localhost/factoriesAdd', {
-          params: {
-            factory_name: factory_name,
-            owner: owner,
-            profit: profit,
-            scale: scale
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/addFactory',
+        data: {
+          factoryName: factoryName,
+          owner: owner,
+          profit: profit,
+          scale: scale
+        }
+      })
     },
     changeFactory(id) {
-      var factory_name = prompt('请输入工厂名')
+      var factoryName = prompt('请输入工厂名')
       var owner = prompt('请输入工厂所有者')
       var profit = prompt('请输入工厂年盈利')
       var scale = prompt('请输入工厂规模')
-      if (factory_name == '' || owner == '' || profit == '' || scale == '') {
+      if (factoryName == '' || owner == '' || profit == '' || scale == '') {
         return alert('请填写完整的信息')
       }
-      axios
-        .get('http://localhost/factoriesChange', {
-          params: {
-            factory_name: factory_name,
-            owner: owner,
-            profit: profit,
-            scale: scale,
-            id: id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/updateFactory',
+        data: {
+          factoryName: factoryName,
+          owner: owner,
+          profit: profit,
+          scale: scale,
+          id: id
+        }
+      })
     },
     delFactory(id) {
-      axios
-        .get('http://localhost/factoriesDel', {
-          params: {
-            id: id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/deleteFactory',
+        data: {
+          id: id
+        }
+      })
     },
 
     list_devices() {
       axios
-        .get('http://localhost/devices')
+        .get('http://localhost:8181/getAllDevice')
         .then(res => {
           this.tableData_devices = res.data //数据传递到页面数组
           console.log('设备数据获取成功')
@@ -837,7 +827,7 @@ export default {
     },
     search_device_id() {
       axios
-        .get('http://localhost/devices')
+        .get('http://localhost:8181/getAllDevice')
         .then(res => {
           this.tableData_devices = res.data //数据传递到页面数组
           console.log('设备数据获取成功')
@@ -862,54 +852,49 @@ export default {
         })
     },
     addDevice() {
-      var device_name = prompt('请输入设备名')
-      var product_id = prompt('请输入管理产品的编号')
+      var deviceName = prompt('请输入设备名')
+      var productId = prompt('请输入管理产品的编号')
       var status = prompt('请输入设备状态')
-      if (device_name == '' || product_id == '' || status == '') {
+      if (deviceName == '' || productId == '' || status == '') {
         return alert('请填写完整的信息')
       }
-      axios
-        .get('http://localhost/devicesAdd', {
-          params: {
-            device_name: device_name,
-            product_id: product_id,
-            status: status
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/addDevice',
+        data: {
+          deviceName: deviceName,
+          productId: productId,
+          status: status
+        }
+      })
     },
     changeDevice(id) {
-      var device_name = prompt('请输入设备名')
-      var product_id = prompt('请输入管理产品的编号')
+      var deviceName = prompt('请输入设备名')
+      var productId = prompt('请输入管理产品的编号')
       var status = prompt('请输入设备状态')
-      if (device_name == '' || product_id == '' || status == '') {
+      if (deviceName == '' || productId == '' || status == '') {
         return alert('请填写完整的信息')
       }
-      axios
-        .get('http://localhost/devicesChange', {
-          params: {
-            device_name: device_name,
-            product_id: product_id,
-            status: status,
-            id: id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/updateDevice',
+        data: {
+          deviceName: deviceName,
+          productId: productId,
+          status: status,
+          id: id
+        }
+      })
     },
     delDevice(id) {
-      axios
-        .get('http://localhost/devicesDel', {
-          params: {
-            id: id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/deleteDevice',
+        data: {
+          id: id
+        }
+      })
     },
 
     list_orders() {
@@ -919,7 +904,7 @@ export default {
     },
     search_order_id() {
       axios
-        .get('http://localhost/orders')
+        .get('http://localhost:8181/getAllOrder')
         .then(res => {
           this.tableData_orders = res.data //数据传递到页面数组
           console.log('订单数据获取成功')
@@ -948,64 +933,59 @@ export default {
     },
     addOrder() {
       var buyer = prompt('请输入买家')
-      var product_id = prompt('请输入所需产品编号')
-      var target_amount = prompt('请输入所需数量')
+      var productId = prompt('请输入所需产品编号')
+      var targetAmount = prompt('请输入所需数量')
       var value = prompt('请输入订单额度')
-      if (buyer == '' || product_id == '' || target_amount == '' || value == '') {
+      if (buyer == '' || productId == '' || targetAmount == '' || value == '') {
         return alert('请填写完整的信息')
       }
-      axios
-        .get('http://localhost/ordersAdd', {
-          params: {
-            buyer: buyer,
-            product_id: product_id,
-            target_amount: target_amount,
-            status: 0,
-            value: value
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/addOrder',
+        data: {
+          buyer: buyer,
+          productId: productId,
+          targetAmount: targetAmount,
+          status: 0,
+          value: value
+        }
+      })
     },
     changeOrder(id) {
       var buyer = prompt('请输入买家')
-      var product_id = prompt('请输入所需产品编号')
-      var target_amount = prompt('请输入所需数量')
+      var productId = prompt('请输入所需产品编号')
+      var targetAmount = prompt('请输入所需数量')
       var status = prompt('请输入订单状态')
       var value = prompt('请输入订单额度')
-      if (buyer == '' || product_id == '' || target_amount == '' || value == '') {
+      if (buyer == '' || productId == '' || targetAmount == '' || value == '') {
         return alert('请填写完整的信息')
       }
-      axios
-        .get('http://localhost/ordersChange', {
-          params: {
-            buyer: buyer,
-            product_id: product_id,
-            target_amount: target_amount,
-            status: status,
-            value: value,
-            id: id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/updateOrder',
+        data: {
+          buyer: buyer,
+          productId: productId,
+          targetAmount: targetAmount,
+          status: 0,
+          value: value,
+          id: id
+        }
+      })
     },
     delOrder(id) {
-      axios
-        .get('http://localhost/ordersDel', {
-          params: {
-            id: id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/deleteOrder',
+        data: {
+          id: id
+        }
+      })
     },
     checkOrder() {
       axios
-        .get('http://localhost/orders')
+        .get('http://localhost:8181/getAllOrder')
         .then(res => {
           this.tableData_orders = res.data
         })
@@ -1014,7 +994,7 @@ export default {
         })
 
       axios
-        .get('http://localhost/products')
+        .get('http://localhost:8181/getAllProduct')
         .then(res => {
           this.tableData_products = res.data
         })
@@ -1025,25 +1005,24 @@ export default {
       let str = ''
 
       for (let i = 0; i < this.tableData_orders.length; i++) {
-        var target = this.tableData_products.find(item => item.id == this.tableData_orders[i].product_id)
+        var target = this.tableData_products.find(item => item.id == this.tableData_orders[i].productId)
         if (target != undefined) {
-          if (target.amount >= this.tableData_orders[i].target_amount) {
+          if (target.amount >= this.tableData_orders[i].targetAmount) {
             str += this.tableData_orders[i].id + '/'
             this.tableData_orders[i].status = 1
-            axios
-              .get('http://localhost/ordersChange', {
-                params: {
-                  buyer: this.tableData_orders[i].buyer,
-                  product_id: this.tableData_orders[i].product_id,
-                  target_amount: this.tableData_orders[i].target_amount,
-                  status: 1,
-                  value: this.tableData_orders[i].value,
-                  id: this.tableData_orders[i].id
-                }
-              })
-              .catch(err => {
-                console.log(err)
-              })
+
+            axios({
+              method: 'post',
+              url: 'http://localhost:8181/updateOrder',
+              data: {
+                buyer: this.tableData_orders[i].buyer,
+                productId: this.tableData_orders[i].productId,
+                targetAmount: this.tableData_orders[i].targetAmount,
+                status: 1,
+                value: this.tableData_orders[i].value,
+                id: this.tableData_orders[i].id
+              }
+            })
           }
         }
       }
@@ -1054,7 +1033,7 @@ export default {
 
     list_generateplan() {
       axios
-        .get('http://localhost/generateplan')
+        .get('http://localhost:8181/getAllGeneratePlan')
         .then(res => {
           this.tableData_generateplan = res.data //数据传递到页面数组
           console.log('生产计划数据获取成功')
@@ -1067,7 +1046,7 @@ export default {
     },
     search_generateplan_id() {
       axios
-        .get('http://localhost/generateplan')
+        .get('http://localhost:8181/getAllGeneratePlan')
         .then(res => {
           this.tableData_generateplan = res.data //数据传递到页面数组
           console.log('生产计划数据获取成功')
@@ -1092,69 +1071,64 @@ export default {
         })
     },
     addGenerateplan() {
-      var product_id = prompt('请输入所需产品编号')
-      var target_amount = prompt('请输入所需数量')
-      var existing_amount = prompt('请输入已有产品数量')
+      var productId = prompt('请输入所需产品编号')
+      var targetAmount = prompt('请输入所需数量')
+      var existingAmount = prompt('请输入已有产品数量')
       var deadline = prompt('请输入截止时间')
-      var start_time = prompt('请输入开始时间')
-      var factory_id = prompt('请输入执行生产计划的工厂编号')
-      if (product_id == '' || target_amount == '' || existing_amount == '' || deadline == '' || start_time == '' || factory_id == '') {
+      var startTime = prompt('请输入开始时间')
+      var factoryId = prompt('请输入执行生产计划的工厂编号')
+      if (productId == '' || targetAmount == '' || existingAmount == '' || deadline == '' || startTime == '' || factoryId == '') {
         return alert('请填写完整的信息')
       }
-      axios
-        .get('http://localhost/generateplanAdd', {
-          params: {
-            product_id: product_id,
-            target_amount: target_amount,
-            existing_amount: existing_amount,
-            deadline: deadline,
-            start_time: start_time,
-            status: 0,
-            factory_id: factory_id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/addGeneratePlan',
+        data: {
+          productId: productId,
+          targetAmount: targetAmount,
+          existingAmount: existingAmount,
+          deadline: deadline,
+          startTime: startTime,
+          status: 0,
+          factoryId: factoryId
+        }
+      })
     },
     changeGenerateplan(id) {
-      var product_id = prompt('请输入所需产品编号')
-      var target_amount = prompt('请输入所需数量')
-      var existing_amount = prompt('请输入已有产品数量')
+      var productId = prompt('请输入所需产品编号')
+      var targetAmount = prompt('请输入所需数量')
+      var existingAmount = prompt('请输入已有产品数量')
       var deadline = prompt('请输入截止时间')
-      var start_time = prompt('请输入开始时间')
+      var startTime = prompt('请输入开始时间')
       var status = prompt('请输入生产计划状态')
-      var factory_id = prompt('请输入执行生产计划的工厂编号')
-      if (product_id == '' || target_amount == '' || existing_amount == '' || deadline == '' || start_time == '' || factory_id == '') {
+      var factoryId = prompt('请输入执行生产计划的工厂编号')
+      if (productId == '' || targetAmount == '' || existingAmount == '' || deadline == '' || startTime == '' || factoryId == '') {
         return alert('请填写完整的信息')
       }
-      axios
-        .get('http://localhost/generateplanChange', {
-          params: {
-            product_id: product_id,
-            target_amount: target_amount,
-            existing_amount: existing_amount,
-            deadline: deadline,
-            start_time: start_time,
-            status: status,
-            factory_id: factory_id,
-            id: id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/updateGeneratePlan',
+        data: {
+          productId: productId,
+          targetAmount: targetAmount,
+          existingAmount: existingAmount,
+          deadline: deadline,
+          startTime: startTime,
+          status: 0,
+          factoryId: factoryId,
+          id: id
+        }
+      })
     },
     delGenerateplan(id) {
-      axios
-        .get('http://localhost/generateplanDel', {
-          params: {
-            id: id
-          }
-        })
-        .catch(err => {
-          console.log(err)
-        })
+      axios({
+        method: 'post',
+        url: 'http://localhost:8181/deleteGeneratePlan',
+        data: {
+          id: id
+        }
+      })
     },
 
     submit() {
@@ -1166,7 +1140,7 @@ export default {
       }
       // 修改产品表里的产品数量数据
       axios
-        .get('http://localhost/products')
+        .get('http://localhost:8181/getAllProduct')
         .then(res => {
           this.tableData_products = res.data
 
@@ -1174,19 +1148,16 @@ export default {
           if (target == undefined) {
             return alert('没有这个编号的产品')
           }
-          axios
-            .get('http://localhost/productsChange', {
-              params: {
-                product_name: target.product_name,
-                amount: target.amount + parseInt(submit_amountgood),
-                price: target.price,
-                id: submit_productid
-              }
-            })
-            .then(alert('记录成功'))
-            .catch(err => {
-              console.log(err)
-            })
+          axios({
+            method: 'post',
+            url: 'http://localhost:8181/updateProduct',
+            data: {
+              productName: target.productName,
+              amount: target.amount + parseInt(submit_amountgood),
+              price: target.price,
+              id: submit_productid
+            }
+          }).then(alert('记录成功'))
         })
         .catch(err => {
           console.log(err)
@@ -1194,33 +1165,31 @@ export default {
 
       // 修改生产计划里的产品数量数据
       axios
-        .get('http://localhost/generateplan')
+        .get('http://localhost:8181/getAllGeneratePlan')
         .then(res => {
           this.tableData_generateplan = res.data //数据传递到页面数组
 
-          var target = this.tableData_generateplan.find(item => item.product_id == submit_productid)
+          var target = this.tableData_generateplan.find(item => item.productId == submit_productid)
           if (target != undefined) {
-            if (target.existing_amount + parseInt(submit_amountgood) >= target.target_amount) {
+            if (target.existingAmount + parseInt(submit_amountgood) >= target.targetAmount) {
               alert('生产计划' + target.id + '已经完成,在生产计划管理栏查看并操作')
               target.status = 1
             }
 
-            axios
-              .get('http://localhost/generateplanChange', {
-                params: {
-                  product_id: target.product_id,
-                  target_amount: target.target_amount,
-                  existing_amount: target.existing_amount + parseInt(submit_amountgood),
-                  deadline: target.deadline,
-                  start_time: target.start_time,
-                  status: target.status,
-                  factory_id: target.factory_id,
-                  id: target.id
-                }
-              })
-              .catch(err => {
-                console.log(err)
-              })
+            axios({
+              method: 'post',
+              url: 'http://localhost:8181/updateGeneratePlan',
+              data: {
+                productId: target.productId,
+                targetAmount: target.targetAmount,
+                existingAmount: target.existingAmount + parseInt(submit_amountgood),
+                deadline: target.deadline,
+                startTime: target.startTime,
+                status: target.status,
+                factoryId: target.factoryId,
+                id: target.id
+              }
+            })
           }
         })
         .catch(err => {

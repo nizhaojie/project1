@@ -3,7 +3,7 @@ let db = require('../db/index')
 
 exports.get_all = (req, res) => {
   var sql = 'select * from orders'
-  db.query(sql, [req.query.id, req.query.buyer, req.query.product_id, req.query.target_amount, req.query.existing_amount, req.query.status, req.query.value], (err, data) => {
+  db.query(sql, [req.query.id, req.query.buyer, req.query.productId, req.query.targetAmount, req.query.existingAmount, req.query.status, req.query.value], (err, data) => {
     if (err) {
       return res.send('错误:' + err.message)
     }
@@ -12,13 +12,13 @@ exports.get_all = (req, res) => {
 }
 
 exports.addOrder = (req, res) => {
-  const sqlStr = 'INSERT INTO orders (buyer,product_id,target_amount,status,value) values (?,?,?,?,?)'
-  db.query(sqlStr, [req.query.buyer, req.query.product_id, req.query.target_amount, req.query.status, req.query.value], (err, data) => {})
+  const sqlStr = 'INSERT INTO orders (buyer,productId,targetAmount,status,value) values (?,?,?,?,?)'
+  db.query(sqlStr, [req.query.buyer, req.query.productId, req.query.targetAmount, req.query.status, req.query.value], (err, data) => {})
 }
 
 exports.changeOrder = (req, res) => {
-  const sqlStr = 'UPDATE orders SET buyer=?,product_id=?,target_amount=?,status=?,value=? WHERE id=?'
-  db.query(sqlStr, [req.query.buyer, req.query.product_id, req.query.target_amount, req.query.status, req.query.value, req.query.id], (err, res) => {})
+  const sqlStr = 'UPDATE orders SET buyer=?,productId=?,targetAmount=?,status=?,value=? WHERE id=?'
+  db.query(sqlStr, [req.query.buyer, req.query.productId, req.query.targetAmount, req.query.status, req.query.value, req.query.id], (err, res) => {})
 }
 
 exports.delOrder = (req, res) => {
