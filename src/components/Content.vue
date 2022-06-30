@@ -858,16 +858,19 @@ export default {
       if (deviceName == '' || productId == '' || status == '') {
         return alert('请填写完整的信息')
       }
-
-      axios({
-        method: 'post',
-        url: 'http://localhost:8181/addDevice',
-        data: {
-          deviceName: deviceName,
-          productId: productId,
-          status: status
-        }
-      }).then(setTimeout(this.list_devices, 1000))
+      if (status == 0 || status == 1) {
+        axios({
+          method: 'post',
+          url: 'http://localhost:8181/addDevice',
+          data: {
+            deviceName: deviceName,
+            productId: productId,
+            status: status
+          }
+        }).then(setTimeout(this.list_devices, 1000))
+      } else {
+        return alert('状态只能是0或1')
+      }
     },
     changeDevice(id) {
       var deviceName = prompt('请输入设备名')
@@ -876,16 +879,21 @@ export default {
       if (deviceName == '' || productId == '' || status == '') {
         return alert('请填写完整的信息')
       }
-      axios({
-        method: 'post',
-        url: 'http://localhost:8181/updateDevice',
-        data: {
-          deviceName: deviceName,
-          productId: productId,
-          status: status,
-          id: id
-        }
-      }).then(setTimeout(this.list_devices, 1000))
+
+      if (status == 0 || status == 1) {
+        axios({
+          method: 'post',
+          url: 'http://localhost:8181/updateDevice',
+          data: {
+            deviceName: deviceName,
+            productId: productId,
+            status: status,
+            id: id
+          }
+        }).then(setTimeout(this.list_devices, 1000))
+      } else {
+        return alert('状态只能是0或1')
+      }
     },
     delDevice(id) {
       axios({
@@ -1032,17 +1040,9 @@ export default {
     },
 
     list_generateplan() {
-      axios
-        .get('http://localhost:8181/getAllGeneratePlan')
-        .then(res => {
-          this.tableData_generateplan = res.data //数据传递到页面数组
-          console.log('生产计划数据获取成功')
-          this.$refs.generateplan_table1.style.display = 'none'
-          this.$refs.generateplan_table.style.display = 'block'
-        })
-        .catch(err => {
-          console.log('生产计划数据获取失败' + err)
-        })
+      this.checkGeneratePlan()
+      this.$refs.generateplan_table1.style.display = 'none'
+      this.$refs.generateplan_table.style.display = 'block'
     },
     search_generateplan_id() {
       axios
@@ -1091,7 +1091,7 @@ export default {
 
       var target = this.tableData_products.find(item => item.id == productId)
       if (target == undefined) {
-        return alert('没有改编号的产品')
+        return alert('没有该编号的产品')
       }
       var existingAmount = target.amount
 
@@ -1157,6 +1157,55 @@ export default {
           id: id
         }
       }).then(setTimeout(this.list_generateplan, 1000))
+    },
+    checkGeneratePlan() {
+      axios
+        .get('http://localhost:8181/getAllGeneratePlan')
+        .then(res => {
+          this.tableData_generateplan = res.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
+      axios
+        .get('http://localhost:8181/getAllProduct')
+        .then(res => {
+          this.tableData_products = res.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
+      let str = ''
+
+      for (let i = 0; i < this.tableData_generateplan.length; i++) {
+        var target = this.tableData_products.find(item => item.id == this.tableData_generateplan[i].productId)
+        if (target != undefined) {
+          if (target.amount >= this.tableData_generateplan[i].targetAmount) {
+            str += this.tableData_generateplan[i].id + '/'
+            this.tableData_generateplan[i].status = 1
+
+            axios({
+              method: 'post',
+              url: 'http://localhost:8181/updateGeneratePlan',
+              data: {
+                productId: this.tableData_generateplan[i].productId,
+                targetAmount: this.tableData_generateplan[i].targetAmount,
+                existingAmount: target.amount,
+                deadline: this.tableData_generateplan[i].deadline,
+                startTime: this.tableData_generateplan[i].startTime,
+                status: 1,
+                factoryId: this.tableData_generateplan[i].factoryId,
+                id: this.tableData_generateplan[i].id
+              }
+            })
+          }
+        }
+      }
+      if (str != '') {
+        alert('生产计划' + str + '已完成,在生产计划管理栏查看并操作')
+      }
     },
 
     submit() {
@@ -1224,7 +1273,7 @@ export default {
           console.log(err)
         })
 
-      this.checkOrder()
+      setTimeout(this.checkOrder, 1000)
     },
 
     change1() {
