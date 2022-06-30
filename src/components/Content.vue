@@ -256,8 +256,8 @@
       <button class="content_button add" @click="addGenerateplan">添加</button>
       <button class="content_button list" @click="list_generateplan">列表展示</button>
 
-      <div ref="generateplan_table" style="width: 800px; height: 500px; border: 1px solid black;position:absolute;top:150px;left:80px;display:none">
-        <el-table :data="tableData_generateplan" height="500" border style="width: 100%;text-align:center">
+      <div ref="generateplan_table" style="width: 900px; height: 250px; border: 1px solid black;position:absolute;top:150px;left:30px;display:none">
+        <el-table :data="tableData_generateplan" height="250" border style="width: 100%;text-align:center">
           <el-table-column prop="id" label="生产计划编号">
           </el-table-column>
           <el-table-column prop="productId" label="产品编号">
@@ -286,7 +286,23 @@
           </el-table-column>
         </el-table>
       </div>
-      <div ref="generateplan_table1" style="width: 800px; height: 500px; border: 1px solid black;position:absolute;top:150px;left:80px;display:none">
+
+      <div ref="report_table" style="width: 900px; height: 250px; border: 1px solid black;position:absolute;top:403px;left:30px;display:none">
+        <el-table :data="tableData_report" height="250" border style="width: 100%;text-align:center">
+          <el-table-column prop="id" label="生产报告编号">
+          </el-table-column>
+          <el-table-column prop="date" label="日期">
+          </el-table-column>
+          <el-table-column prop="productId" label="产品编号">
+          </el-table-column>
+          <el-table-column prop="amountAll" label="生产数量">
+          </el-table-column>
+          <el-table-column prop="amountGood" label="合格数量">
+          </el-table-column>
+        </el-table>
+      </div>
+
+      <div ref="generateplan_table1" style="width: 900px; height: 500px; border: 1px solid black;position:absolute;top:150px;left:30px;display:none">
         <el-table :data="tableData_generateplan" height="500" border style="width: 100%;text-align:center">
           <el-table-column prop="id" label="生产计划编号">
           </el-table-column>
@@ -394,6 +410,15 @@ export default {
           status: 0,
           factoryId: 0
         }
+      ],
+      tableData_report: [
+        {
+          id: 0,
+          productId: 0,
+          amountAll: 0,
+          amountGood: 0,
+          date: ''
+        }
       ]
     }
   },
@@ -454,6 +479,21 @@ export default {
           console.log('生产计划数据获取失败' + err)
         })
     },
+
+    getTime() {
+      const date = new Date()
+      const nowYear = date.getFullYear()
+      const nowMonth = date.getMonth() + 1
+      const nowDay = date.getDate()
+      const nowHour = date.getHours()
+      const nowMinutes = date.getMinutes()
+      const nowSeconds = date.getSeconds()
+      const currentDate = nowYear + '.' + nowMonth + '.' + nowDay
+      const currentTime = nowHour + ':' + nowMinutes + ':' + nowSeconds
+      const time = currentDate + ' ' + currentTime
+      return time
+    },
+
     // 产品数据可视化展示
     graphics_products() {
       axios
@@ -1041,8 +1081,18 @@ export default {
 
     list_generateplan() {
       this.checkGeneratePlan()
+      axios
+        .get('http://localhost:8181/getReport')
+        .then(res => {
+          this.tableData_report = res.data
+        })
+        .catch(err => {
+          console.log(err)
+        })
+
       this.$refs.generateplan_table1.style.display = 'none'
       this.$refs.generateplan_table.style.display = 'block'
+      this.$refs.report_table.style.display = 'block'
     },
     search_generateplan_id() {
       axios
@@ -1063,6 +1113,7 @@ export default {
           } else {
             this.tableData_generateplan = [finding_generateplan]
             this.$refs.generateplan_table.style.display = 'none'
+            this.$refs.report_table.style.display = 'none'
             this.$refs.generateplan_table1.style.display = 'block'
           }
         })
@@ -1225,6 +1276,20 @@ export default {
           if (target == undefined) {
             return alert('没有这个编号的产品')
           }
+
+          axios({
+            method: 'post',
+            url: 'http://localhost:8181/addReport',
+            data: {
+              productId: submit_productid,
+              amountAll: submit_amountall,
+              amountGood: submit_amountgood,
+              date: this.getTime()
+            }
+          }).catch(err => {
+            console.log(err)
+          })
+
           axios({
             method: 'post',
             url: 'http://localhost:8181/updateProduct',
